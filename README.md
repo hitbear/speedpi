@@ -9,7 +9,7 @@ A Raspberry Pi with internet access or another Linux machine.
 
 `git clone https://github.com/hitbear/speedpi.git` in the home directore /home/pi of your Raspberry Pi.
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ## Running
 
