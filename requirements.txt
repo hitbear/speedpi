@@ -1,0 +1,5 @@
+###### Requirements without Version Specifiers ######
+speedtest-cli
+python-crontab
+
+###### Requirements with Version Specifiers ######
