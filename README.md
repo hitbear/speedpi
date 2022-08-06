@@ -26,6 +26,13 @@ and
 
 The Script starts a bunch of speedtests and writes the results into a CSV file. At first - if no csv file exists. The script will create one.
 
+## Evaluation
+
+To get nice pictures type
+
+
+`python3 src/evaluate.py`
+
 ## Notes
 
 The time is UTC time. To doublecheck type `date -u` into a terminal. 

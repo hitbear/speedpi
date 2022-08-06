@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv('speedtests.csv')
 
@@ -15,3 +16,6 @@ uploads_in_mbits_round = uploads_in_mbits.round(2)
 mean_upload_mbits = uploads_in_mbits.mean().round(2)
 
 print("Mean Upload " + str(mean_upload_mbits) + " MBit/s")
+
+plt.plot(downloads_in_mbits_round)
+plt.show()

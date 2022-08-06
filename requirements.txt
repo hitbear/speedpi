@@ -2,4 +2,5 @@
 speedtest-cli
 python-crontab
 pandas
+matplotlib
 ###### Requirements with Version Specifiers ######
