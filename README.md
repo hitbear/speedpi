@@ -11,6 +11,8 @@ A Raspberry Pi with internet access or another Linux machine.
 
 `pip3 install -r requirements.txt`
 
+Check out with `which speedtest-cli` where lies. If it is not `/usr/local/bin`, change the path in `src/speedpi.py`. 
+
 ## Running
 
 On a terminal type
@@ -30,3 +32,8 @@ The time is UTC time. To doublecheck type `date -u` into a terminal.
 To check crontab jobs type `crontab -l` into a terminal. To delete all jobs type `crontab -r`
 
 Observing the csv file could be done by `tail -f speedtest.csv`
+
+
+## ToDo
+
+Sometimes on Raspberry Pi the path for speedtest is /usr/bin and sometimes /usr/local/bin

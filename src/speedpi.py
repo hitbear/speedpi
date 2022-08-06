@@ -3,7 +3,7 @@ import os
 
 
 def speedpi():
-    speedtest = "speedtest-cli "
+    speedtest = "/usr/local/bin/speedtest-cli "
     # add arguments
     speedtest = speedtest + "--csv "
     # specify output file
