@@ -7,6 +7,8 @@ A Raspberry Pi with internet access or another Linux machine.
 
 ## Installation
 
+`git clone` in the home directore /home/pi of your Raspberry Pi.
+
 `pip install -r requirements.txt`
 
 ## Running
@@ -26,3 +28,5 @@ The Script starts a bunch of speedtests and writes the results into a CSV file. 
 
 The time is UTC time. To doublecheck type `date -u` into a terminal. 
 To check crontab jobs type `crontab -l` into a terminal. To delete all jobs type `crontab -r`
+
+Observing the csv file could be done by `tail -f speedtest.csv`
