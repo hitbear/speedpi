@@ -11,7 +11,7 @@ A Raspberry Pi with internet access or another Linux machine.
 
 `pip3 install -r requirements.txt`
 
-Check out with `which speedtest-cli` where lies. If it is not `/usr/local/bin`, change the path in `src/speedpi.py`. 
+Check out with `which speedtest-cli` where your speedtest file lies. If it is not `/usr/local/bin`, change the path in `src/speedpi.py`. 
 
 ## Running
 
@@ -24,11 +24,11 @@ and
 `./start.sh`
 
 
-The Script starts a bunch of speedtests and writes the results into a CSV file. At first - if no csv file exists. The script will create one.
+The Script starts a bunch of speedtests and writes the results into a CSV file. At first - if no csv file exists - the script will create one.
 
 ## Evaluation
 
-To get nice pictures type
+To get nice plots type
 
 
 `python3 src/evaluate.py`
