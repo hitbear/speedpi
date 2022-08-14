@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import numpy as np
 from dateutil import parser as dateparser
 
 df = pd.read_csv('speedtests.csv')
@@ -23,13 +23,19 @@ print("Mean Upload " + str(mean_upload_mbits) + " MBit/s")
 timestamps = df['Timestamp'].to_numpy()
 timestamps = [dateparser.parse(time) for time in timestamps]
 
+########################################################################
+### Some plots
+
 fig = plt.figure()
 ax = fig.add_subplot()
 
 ax.set_title("Download Speed")
 ax.plot(timestamps, downloads_in_mbits_round)
-ax.set_xlabel("Zeit")
+ax.set_xlabel("Time")
 ax.set_ylabel("MBit/s")
+ax.grid(True)
+ax.fill_between(timestamps, 26, 34, alpha=0.1)
+ax.fill_between(timestamps, downloads_in_mbits_round - 1, downloads_in_mbits_round + 1, alpha=0.3)
 plt.show()
 
 fig = plt.figure()
@@ -37,6 +43,52 @@ ax = fig.add_subplot()
 ax.set_title("Up- and Download Speed")
 ax.plot(timestamps, downloads_in_mbits_round)
 ax.plot(timestamps, uploads_in_mbits_round)
-ax.set_xlabel("Zeit")
+ax.set_xlabel("Time")
 ax.set_ylabel("MBit/s")
+ax.grid(True)
+ax.fill_between(timestamps, 26, 34, alpha=0.1)
+ax.fill_between(timestamps, 2, 7, alpha=0.1)
+ax.fill_between(timestamps, downloads_in_mbits_round - 1, downloads_in_mbits_round + 1, alpha=0.3)
+ax.fill_between(timestamps, uploads_in_mbits_round - 1, uploads_in_mbits_round + 1, alpha=0.3)
+plt.show()
+
+
+### Box 
+
+fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2, figsize=(9, 4))
+bplot1 = ax1.boxplot(downloads_in_mbits_round,
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     )  # will be used to label x-ticks
+ax1.set_title('Download')
+ax1.text(0.7,28, "Mean: " + str(mean_download_mbits) 
+            + "\nMin:    " + str(np.min(downloads_in_mbits_round))
+            + "\nMax:   " + str(np.max(downloads_in_mbits_round))
+            )
+
+bplot3 = ax3.boxplot(uploads_in_mbits_round,
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     )  # will be used to label x-ticks
+ax3.set_title('Upload')
+ax3.text(0.7,4.8, "Mean: " + str(mean_upload_mbits) 
+            + "\nMin:    " + str(np.min(uploads_in_mbits_round))
+            + "\nMax:   " + str(np.max(uploads_in_mbits_round))
+            )
+
+bplot2 = ax2.boxplot(downloads_in_mbits_round,
+                     notch=True,  # notch shape
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     )  # will be used to label x-ticks
+ax2.set_title('Download (notched)')
+
+bplot4 = ax4.boxplot(uploads_in_mbits_round,
+                     notch=True,  # notch shape
+                     vert=True,  # vertical box alignment
+                     patch_artist=True,  # fill with color
+                     )  # will be used to label x-ticks
+ax4.set_title('Upload (notched')
+
+
 plt.show()
