@@ -33,7 +33,11 @@ To get nice plots type
 
 `python3 src/evaluate.py`
 
-![Evaluation](eval1.png)
+![Evaluation1](eval1.png)
+
+![Evaluation2](eval2.png)
+
+![Evaluation3](eval3.png)
 
 ## Notes
 
