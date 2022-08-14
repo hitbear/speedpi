@@ -36,19 +36,20 @@ fig = plt.figure()
 ax = fig.add_subplot()
 
 ax.set_title("Download Speed")
-ax.plot(timestamps, downloads_in_mbits_round)
+ax.plot(timestamps, downloads_in_mbits_round, label="Download Speed")
 ax.set_xlabel("Time")
 ax.set_ylabel("MBit/s")
 ax.grid(True)
 ax.fill_between(timestamps, 26, 34, alpha=0.1)
 ax.fill_between(timestamps, downloads_in_mbits_round - 1, downloads_in_mbits_round + 1, alpha=0.3)
+ax.legend()
 plt.show()
 
 fig = plt.figure()
 ax = fig.add_subplot()
 ax.set_title("Up- and Download Speed")
-ax.plot(timestamps, downloads_in_mbits_round)
-ax.plot(timestamps, uploads_in_mbits_round)
+ax.plot(timestamps, downloads_in_mbits_round, label="Download Speed")
+ax.plot(timestamps, uploads_in_mbits_round, label="Upload Speed")
 ax.set_xlabel("Time")
 ax.set_ylabel("MBit/s")
 ax.grid(True)
@@ -56,6 +57,7 @@ ax.fill_between(timestamps, 26, 34, alpha=0.1)
 ax.fill_between(timestamps, 2, 7, alpha=0.1)
 ax.fill_between(timestamps, downloads_in_mbits_round - 1, downloads_in_mbits_round + 1, alpha=0.3)
 ax.fill_between(timestamps, uploads_in_mbits_round - 1, uploads_in_mbits_round + 1, alpha=0.3)
+ax.legend()
 plt.show()
 
 ### Box 
@@ -69,7 +71,9 @@ ax1.set_title('Download')
 ax1.text(0.7,mid_down, "Mean:   " + str(mean_download_mbits) 
             + "\nMin:      " + str(np.min(downloads_in_mbits_round))
             + "\nMax:     " + str(np.max(downloads_in_mbits_round))
-            + "\nMedian:" + str(median_downloads)
+            + "\nMedian:" + str(median_downloads),
+            style='italic',
+            bbox={'facecolor': 'red', 'alpha': 0.2, 'pad': 10}
             )
 
 bplot3 = ax3.boxplot(uploads_in_mbits_round,
@@ -80,7 +84,9 @@ ax3.set_title('Upload')
 ax3.text(0.7,mid_up, "Mean:   " + str(mean_upload_mbits) 
             + "\nMin:      " + str(np.min(uploads_in_mbits_round))
             + "\nMax:     " + str(np.max(uploads_in_mbits_round))
-            + "\nMedian:" + str(median_uploads)
+            + "\nMedian:" + str(median_uploads),
+            style='italic',
+            bbox={'facecolor': 'red', 'alpha': 0.2, 'pad': 10}
             )
 
 bplot2 = ax2.boxplot(downloads_in_mbits_round,
