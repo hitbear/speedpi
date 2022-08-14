@@ -33,6 +33,8 @@ To get nice plots type
 
 `python3 src/evaluate.py`
 
+![Evaluation](eval1.png)
+
 ## Notes
 
 The time is UTC time. To doublecheck type `date -u` into a terminal. 
